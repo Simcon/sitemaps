@@ -65,7 +65,7 @@ namespace Sitemaps
                     root.Add(
                     new XElement(xmlns + "sitemap",
                         new XElement(xmlns + "loc", Uri.EscapeUriString(string.Format("{0}/?page={1}", GetUrl(context), i + 1))),
-                        new XElement(xmlns + "lastmod", timestamp.ToString("yyyy-MM-ddTHH:mmK", CultureInfo.InvariantCulture)))
+                        new XElement(xmlns + "lastmod", timestamp.ToString("yyyy-MM-ddTHH:mmzzz", CultureInfo.InvariantCulture)))
                         );
                 }
             }
@@ -78,7 +78,7 @@ namespace Sitemaps
                     root.Add(
                     new XElement(xmlns + "url",
                         new XElement(xmlns + "loc", Uri.EscapeUriString(node.Url)),
-                        new XElement(xmlns + "lastmod", node.LastModified.ToString("yyyy-MM-ddTHH:mmK", CultureInfo.InvariantCulture)),
+                        new XElement(xmlns + "lastmod", node.LastModified.ToString("yyyy-MM-ddTHH:mmzzz", CultureInfo.InvariantCulture)),
                         new XElement(xmlns + "changefreq", node.Frequency.ToString().ToLowerInvariant()),
                         new XElement(xmlns + "priority", node.Priority.ToString().ToLowerInvariant())
                         ));
